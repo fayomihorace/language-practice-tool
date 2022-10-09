@@ -1,22 +1,33 @@
 {
   "0": {
     "text": "ubiquitous",
-    "meanings": [],
+    "meanings": ["omnipresent", "partout"],
     "lastSeenDay": "",
     "learnCount": 0,
     "score": 0,
+    "totalScore": 0,
+    "listeningScoreTotal": 0,
+    "translationScoreTotal": 0,
     "popularity": 6,
     "sentences": [],
-    "context": []
+    "context": [],
+    "category": "Advanced",
+    "tags": ["Advanced"]
   },
   "1": {
-    "text": "stray",
-    "meanings": ["errer"],
+    "text": "Today is November 26th",
+    "url": "https://dailydictation.com/upload/general-english/1-first-snowfall-2019-03-14-04-19-38/1-2022-05-20-10-01-22.mp3",
+    "meanings": ["Aujourd'hui c'est le 26 novembre"],
     "lastSeenDay": "",
     "learnCount": 0,
-    "score": 2,
+    "score": 0,
+    "totalScore": 0,
+    "listeningScoreTotal": 0,
+    "translationScoreTotal": 0,
     "popularity": 6,
     "sentences": [],
-    "context": []
+    "context": [],
+    "category": "Advanced",
+    "tags": ["Advanced"]
   }
 }

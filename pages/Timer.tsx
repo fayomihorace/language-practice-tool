@@ -1,29 +1,39 @@
 import {useState, useEffect} from 'react'
 import {Text} from '@chakra-ui/react'
 
-export default function ({ timeSeconds }) {
-  const [date, setDate] = useState(new Date())
+export default function ({ timeSeconds, timerOn, setRemainingTime, onTimeout }) {
   const [timeCounter, setTimeCounter] = useState(0)
   const [countLimit, setCountLimit] = useState(timeSeconds/1000)
+  const [timerId, setTimerId] = useState(0)
   const remaingSeconds = () => countLimit - timeCounter
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (timeCounter !== countLimit) {
+      console.log('---------count: ', timeCounter, remaingSeconds())
+      if (timeCounter === countLimit - 1) {
+        clearInterval(timerId)
+        onTimeout()
+      }
+      else {
         setTimeCounter(timeCounter + 1)
+        setRemainingTime(remaingSeconds()* 1000)
       }
     }, 1000)
+    setTimerId(timer)
     return () => {
-      clearTimeout(timer)
+      clearInterval(timer)
     }
   }, [timeCounter])
 
   useEffect(() => {
-    if (timeSeconds !==0 ) {
+    if (timerOn) {
       setTimeCounter(0)
       setCountLimit(timeSeconds/1000)
     }
-  }, [timeSeconds])
+    else {
+      clearInterval(timerId)
+    }
+  }, [timerOn])
 
   return (
     timeSeconds && remaingSeconds() > 0
@@ -31,6 +41,6 @@ export default function ({ timeSeconds }) {
           {remaingSeconds()}
           {` second${remaingSeconds() > 1 ? 's' : '' }`}
         </Text>
-      : ''
+      : <span />
   )
 }
